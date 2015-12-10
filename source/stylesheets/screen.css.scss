@@ -25,12 +25,15 @@ under the License.
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////
 
+html{
+  // zoom:1.2;
+}
 html, body {
   color: $main-text;
   padding: 0;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
   background-color: $main-bg;
   height: 100%;
@@ -69,8 +72,8 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 15px;
+  // font-weight: bold;
 
   // language selector for mobile devices
   .lang-selector {
@@ -104,7 +107,7 @@ html, body {
 
     &:before {
       position: absolute;
-      top: 17px;
+      top: 26px;
       left: $nav-padding;
       color: $nav-text;
       @extend %icon-search;
@@ -162,7 +165,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 38px;
   }
 
   li {
@@ -170,6 +173,7 @@ html, body {
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 230ms;
+    font-size:15px;
   }
 
   // This is the currently selected ToC entry
@@ -184,14 +188,17 @@ html, body {
   .tocify-subheader {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
-    font-weight: 500;
+    font-weight: normal;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 13px;
+      opacity:0.8;
     }
 
     // for embossed look:
-    @include embossed-bg;
+    // @include embossed-bg;
+    // background:rgba(0,0,0,0.1);
+      background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%);
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
@@ -212,7 +219,7 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
+      font-size: 1em;
       line-height: 1.7;
       text-decoration: none;
     }
@@ -328,7 +335,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
-
+  // padding:20px;
   &:after {
     content: '';
     display: block;
@@ -356,14 +363,15 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 30px;
+    font-size: 40px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    // border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    // background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    color:#0A86CB;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -371,15 +379,41 @@ html, body {
     margin-top: 0;
   }
 
-  h2 {
+  // h2 {
+  //   @extend %header-font;
+  //   font-size: 20px;
+  //   margin-top: 5em;
+  //   margin-bottom: 0.5em;
+  //   // border-top: 1px solid #ccc;
+  //   padding-top: 1.2em;
+  //   padding-bottom: 1.2em;
+  //   background-image: linear-gradient(to bottom, rgba(#0A86CB, 1), rgba(#006FB6, 1));
+  //   display:inline-block;
+  //   margin-left:20px;
+  //   border-radius:2px;
+  //   padding:0.3em 1em 0.3em 1em;
+  //   background: #393939;
+  //   color:#fff;
+  //   font-weight:600;
+  //   width:99%;
+  //   z-index: 9999;
+  // }
+
+    h2 {
     @extend %header-font;
     font-size: 20px;
-    margin-top: 4em;
-    margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    margin-top: 5em;
+    margin-bottom: 0.5em;
+    // border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
+    background-image: linear-gradient(to bottom, rgba(#0A86CB, 1), rgba(#006FB6, 1));
+    display:inline-block;
+    margin-left:20px;
+    border-radius:20px;
+    padding:0.3em 1em 0.3em 1em;
+    color:#fff;
+    font-weight:600;
   }
 
   // h2s right after h1s should bump right up
@@ -476,7 +510,9 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
-
+    width:47%;
+    border-radius: 8px;
+    margin-left:1.5%;
     &.warning {
       background-color: $aside-warning-bg;
       @include text-shadow(0 1px 0 lighten($aside-warning-bg, 15%));
